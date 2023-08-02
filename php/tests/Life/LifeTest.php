@@ -1,13 +1,16 @@
 <?php
-namespace pdt256\kata\Life;
+namespace pdt256\kata\tests\Life;
 
-class LifeTest extends \PHPUnit_Framework_TestCase
+use pdt256\kata\Life\Life;
+use PHPUnit\Framework\TestCase;
+
+class LifeTest extends TestCase
 {
-    public function testSetup()
+    public function testSetup(): void
     {
         $life = new Life;
 
-        $this->assertTrue($life instanceof Life);
+        $this->assertInstanceOf(Life::class, $life);
     }
 
     // Any live cell with fewer than two live neighbours dies, as if caused by under-population.

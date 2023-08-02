@@ -1,18 +1,21 @@
 <?php
-namespace pdt256\kata\PrimeFactors;
+namespace pdt256\kata\tests\PrimeFactors;
 
-class PrimeFactorsTest extends \PHPUnit_Framework_TestCase
+use pdt256\kata\PrimeFactors\PrimeFactorGeneratorInterface;
+use pdt256\kata\PrimeFactors\PrimeFactors;
+use PHPUnit\Framework\TestCase;
+
+class PrimeFactorsTest extends TestCase
 {
-    /** @var PrimeFactorGeneratorInterface */
-    private $primeFactors;
+    private PrimeFactorGeneratorInterface $primeFactors;
 
-    public function setUp()
+    public function setUp(): void
     {
         set_time_limit(1);
         $this->primeFactors = new PrimeFactors;
     }
 
-    public function testGenerate()
+    public function testGenerate(): void
     {
         $this->assertSame([], $this->primeFactors->generate(1));
         //$this->assertSame([2], $this->primeFactors->generate(2));
@@ -23,7 +26,7 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase
      * @param array $primes
      * @dataProvider primeFactorsData
      */
-    public function xtestFinal(int $number, array $primes)
+    public function xtestFinal(int $number, array $primes): void
     {
         $result = $this->primeFactors->generate($number);
         $this->assertEquals(
@@ -33,7 +36,7 @@ class PrimeFactorsTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function primeFactorsData()
+    public function primeFactorsData(): array
     {
         return [
             [1, []],

@@ -9,13 +9,8 @@
             "email": "pdt256@gmail.com"
         }
     ],
-    "require-dev": {
-        "phpunit/phpunit": "5.*",
-        "mockery/mockery": "0.9.3",
-        "squizlabs/php_codesniffer": "1.5.5"
-    },
     "require": {
-        "php": ">=7"
+        "php": ">=8.0"
     },
     "autoload": {
         "psr-4": {
@@ -26,5 +21,10 @@
         "psr-4": {
           "pdt256\\kata\\tests\\": "tests"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.2",
+        "mockery/mockery": "^1.6",
+        "squizlabs/php_codesniffer": "^3.7"
     }
 }

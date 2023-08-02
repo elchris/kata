@@ -1,18 +1,21 @@
 <?php
-namespace pdt256\kata\RomanNumerals;
+namespace pdt256\kata\tests\RomanNumerals;
 
-class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
+use pdt256\kata\RomanNumerals\RomanNumeralsConverter;
+use pdt256\kata\RomanNumerals\RomanNumeralsConverterInterface;
+use PHPUnit\Framework\TestCase;
+
+class RomanNumeralsTest extends TestCase
 {
-    /** @var RomanNumeralsConverterInterface */
-    protected $romanNumerals;
+    protected RomanNumeralsConverterInterface $romanNumerals;
 
-    public function setUp()
+    public function setUp(): void
     {
         set_time_limit(1);
         $this->romanNumerals = new RomanNumeralsConverter();
     }
 
-    public function testConversion()
+    public function testConversion(): void
     {
         $this->assertSame('', $this->romanNumerals->arabicToRoman(0));
         //$this->assertSame('I', $this->romanNumerals->arabicToRoman(1));
@@ -23,7 +26,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
      * @param string $romanNumerals
      * @dataProvider romanNumeralsData
      */
-    public function xtestFinal(int $arabicNumber, string $romanNumerals)
+    public function xtestFinal(int $arabicNumber, string $romanNumerals): void
     {
         $this->assertSame(
             $romanNumerals,
@@ -32,7 +35,7 @@ class RomanNumeralsTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function romanNumeralsData()
+    public function romanNumeralsData(): array
     {
         return [
             [1, 'I'],
